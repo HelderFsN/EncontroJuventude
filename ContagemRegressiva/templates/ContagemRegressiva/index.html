@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Juventude Área 53</title>
+	<style type="text/css">
+		#contagem{
+			display: flex;
+			list-style-type: none;
+		}
+		li{
+			padding: 1em;
+			text-align: center;
+		}
+		.variante{
+			font-size: 3em;
+			padding-bottom: 1px;
+		}
+		p{
+			margin: 0;
+		}
+		h1 {
+			background-color: rgba(24, 51, 104, 0.5);
+		    display: flex;
+		    flex-direction: column;
+		    align-items: center;   
+		    text-align: center;  
+		    color: white;   
+		}
+		body{
+			background-image: url("https://raw.githubusercontent.com/HelderFsN/hello/main/background.png");
+		}
+	</style>
+</head>
+<body>
+	<h1>Contagem Regressiva
+		<ul id="contagem">
+			<li>
+				<p id="dias" class="variante"></p>
+				<p>Dias</p>
+			</li>
+			<li>
+				<p id="horas" class="variante"></p>
+				<p>Horas</p>
+			</li>
+			<li>
+				<p id="minutos" class="variante"></p>
+				<p>Minutos</p>
+			</li>
+			<li>
+				<p id="segundos" class="variante"></p>
+				<p>Segundos</p>
+			</li>
+		</ul>
+	</h1>
+	<script type="text/javascript">
+		function atualizarTempo(){
+			fetch('./atualizarTempo')
+			.then(response=>response.json()
+				)
+			.then(object=>{
+				document.querySelector("#dias").innerHTML = object.dias;
+				document.querySelector("#horas").innerHTML = object.horas;
+				document.querySelector("#minutos").innerHTML = object.minutos;
+				document.querySelector("#segundos").innerHTML = object.segundos;
+			})
+		}
+		document.addEventListener("DOMContentLoaded",()=>{
+			setInterval(atualizarTempo,1000)
+		})
+	</script>
+</body>
+</html>
