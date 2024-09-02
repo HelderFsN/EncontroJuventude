@@ -57,15 +57,15 @@
 		.mosaico{
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-		    width: 100vw; 
-		    height: 100vh; 
+		    background: black;
 		    gap: 10px;
 		    z-index: -1;
-			position: absolute;
-
+			position: fixed;
+			width: 100vw;
+    		height: 100vh;
 		}
 		.mosaico img{
-			object-fit: cover;   		
+			object-fit: cover;   	
     		width: 100%;
     		height: 100%;
 		}
@@ -108,6 +108,8 @@
 	</div>
 	<script type="text/javascript">
 		function atualizarTempo(){
+			document.querySelector(".mosaico").style.height = window.innerHeight;
+			document.querySelector(".mosaico").style.width = window.innerWidth;
 			fetch('./atualizarTempo')
 			.then(response=>response.json()
 				)
