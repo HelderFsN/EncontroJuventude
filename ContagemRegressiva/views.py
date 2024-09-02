@@ -11,12 +11,12 @@ def index(request):
 
 @require_GET
 def time(request):
-	dataEncontro = datetime.date(2024, 9, 19)
+	dataEncontro = datetime.date(2024, 11, 23)
 	brazilTz = pytz.timezone("America/Belem")
 	now = datetime.datetime.now(brazilTz)
 	tempoFaltando = dataEncontro - datetime.date.today()
 	dias = tempoFaltando.days
-	horas = 19 - now.hour
+	horas = abs(19 - now.hour)
 	minutos = 60 - now.minute
 	segundos = 60 - now.second
 
