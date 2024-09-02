@@ -120,8 +120,10 @@
 			})
 		}
 		document.addEventListener("DOMContentLoaded",()=>{
-			const currentHeight = window.innerHeight;
+			const currentHeight =  window.visualViewport.height;
 			document.querySelector(".mosaico").style.height = `${currentHeight}px`
+			
+			
 			setInterval(atualizarTempo,1000)
 		})
 	</script>
