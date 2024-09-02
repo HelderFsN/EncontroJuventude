@@ -54,6 +54,9 @@
 		    padding: 0;
 		    box-sizing: border-box;
 		}
+		:root {
+		    --vh: 100%;
+		}
 		.mosaico{
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -62,7 +65,7 @@
 		    z-index: -1;
 			position: fixed;
 			width: 100vw;
-    		height: 100vh;
+    		height: calc(var(--vh, 1vh) * 100);
 		}
 		.mosaico img{
 			object-fit: cover;   	
@@ -108,8 +111,8 @@
 	</div>
 	<script type="text/javascript">
 		function atualizarTempo(){
-			document.querySelector(".mosaico").style.height = window.innerHeight;
-			document.querySelector(".mosaico").style.width = window.innerWidth;
+			const vh = window.innerHeight * 0.01;
+    		document.documentElement.style.setProperty('--vh', `${vh}px`);
 			fetch('./atualizarTempo')
 			.then(response=>response.json()
 				)
