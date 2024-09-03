@@ -5,13 +5,15 @@ import datetime
 import pytz
 
 # Create your views here.
+dataEncontro = datetime.date(2024, 11, 23)
 
 def index(request):
-	return render(request, "ContagemRegressiva/index.html")
+	return render(request, "ContagemRegressiva/index.html",{
+		"dataEncontro": dataEncontro
+		})
 
 @require_GET
 def time(request):
-	dataEncontro = datetime.date(2024, 11, 23)
 	brazilTz = pytz.timezone("America/Belem")
 	now = datetime.datetime.now(brazilTz)
 	tempoFaltando = dataEncontro - datetime.date.today()
