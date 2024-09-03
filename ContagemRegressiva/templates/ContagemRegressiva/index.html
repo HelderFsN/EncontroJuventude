@@ -62,6 +62,7 @@
 		    z-index: -1;
 			position: absolute;
 			width: 100vw;
+			height: 100vh;
 		}
 		.mosaico img{
 			object-fit: cover;   	
@@ -117,9 +118,7 @@
 				document.querySelector("#segundos").innerHTML = object.segundos;
 			})
 		}
-		document.addEventListener("DOMContentLoaded",()=>{
-			const currentHeight =  window.innerHeight;
-			document.querySelector(".mosaico").style.height = `${currentHeight}px`
+			document.addEventListener("DOMContentLoaded",()=>{
 			setInterval(atualizarTempo,1000)
 		})
 	</script>
